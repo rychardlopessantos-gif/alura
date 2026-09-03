@@ -19,13 +19,18 @@
         --text-color: #334155;
         --text-muted: #64748B;
         --border-color: #E2E8F0;
-        --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
       }
 
       * {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
+      }
+
+      html, body {
+        width: 100%;
+        overflow-x: hidden;
       }
 
       body {
@@ -36,13 +41,14 @@
         padding-bottom: 60px;
       }
 
-      /* Header */
+      /* Header sem espaços nas laterais */
       header {
         background-color: var(--primary);
         color: #FFFFFF;
         text-align: center;
         padding: 48px 20px;
-        margin-bottom: 40px;
+        margin-bottom: 32px;
+        width: 100%;
       }
 
       header h1 {
@@ -58,25 +64,25 @@
         font-weight: 400;
       }
 
-      /* Container Principal */
+      /* Container Principal de ponta a ponta */
       main {
-        max-width: 860px;
-        margin: 0 auto;
+        width: 100%;
         display: flex;
         flex-direction: column;
         gap: 32px;
-        padding: 0 16px;
+        padding: 0; /* Remove preenchimento das laterais do main */
       }
 
-      /* Card do Post */
+      /* Card do Post ocupando largura total */
       .post-card {
         background-color: var(--bg-card);
-        border-radius: 12px;
-        box-shadow: var(--shadow);
+        width: 100%;
         padding: 32px;
         display: grid;
         grid-template-columns: 80px 1fr;
         gap: 24px;
+        border-top: 1px solid var(--border-color);
+        border-bottom: 1px solid var(--border-color);
       }
 
       /* Avatar Autor */
