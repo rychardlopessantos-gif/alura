@@ -1,101 +1,23 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog dos Animais</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+// Funcionalidade de Curtir/Descurtir
+const botoesAcao = document.querySelectorAll(".post-actions button");
 
-  <header>
-    <h1>Minha página sobre os animais</h1>
-    <p>Aqui vou compartilhar novidades sobre o mundo animal.</p>
-  </header>
-    
-  <main>
-    <!-- PRIMEIRO POST: Apresentação -->
-    <article class="post-card">
-      <div class="perfil-container">
-        <img src="rychardsom.jpeg" alt="Autor Rychard" class="img-perfil">
-        <div>
-          <h2>Meu primeiro post</h2>
-          <p class="artigo-autor">Por: rychard lopes</p>
-          <p>Boas-vindas ao meu novo blog! Aqui vou compartilhar dados, fotos e histórias incríveis sobre o reino animal.</p>
-        </div>
-      </div>
+botoesAcao.forEach(function(botao) {
+  botao.addEventListener("click", function() {
+    let contador = botao.querySelector("span");
+    contador.textContent = Number(contador.textContent) + 1;
+  });
+});
 
-      <div class="post-actions">
-        <button class="btn-like">👍 <span>0</span></button>
-        <button class="btn-dislike">👎 <span>0</span></button>
-      </div>
-    </article>
+// Funcionalidade do Modo Escuro
+const btnTema = document.getElementById("toggle-theme");
 
-    <!-- SEGUNDO POST: Guia do Reino Animal -->
-    <article class="post-card">
-      <h2>Guia Completo: Invertebrados x Vertebrados</h2>
-      <p class="artigo-autor">Por: rychard lopes</p>
+btnTema.addEventListener("click", function() {
+  document.body.classList.toggle("dark-mode");
 
-      <p>O reino animal é incrivelmente diverso, englobando desde organismos microscópicos até gigantes como a baleia-azul. Para entender melhor esse universo, os animais são divididos em duas grandes categorias principais:</p>
-
-      <img src="Gemini_Generated_Image_vyj7drvyj7drvyj7.png" alt="Categorias de Animais" class="img-post-destaque">
-
-      <h3>Invertebrados</h3>
-      <ul>
-        <li><strong>Insetos e Aracnídeos:</strong> Formigas, abelhas, aranhas e escorpiões.</li>
-        <li><strong>Moluscos e Crustáceos:</strong> Polvos, lulas, caranguejos e caracóis.</li>
-        <li><strong>Outros grupos:</strong> Águas-vivas, corais, minhocas e estrelas-do-mar.</li>
-      </ul>
-
-      <h3>Vertebrados</h3>
-      <p>Possuem espinha dorsal e crânio, dividindo-se em cinco grupos principais:</p>
-      <ul>
-        <li><strong>Mamíferos:</strong> Têm pelos, sangue quente e amamentam seus filhotes.</li>
-        <li><strong>Aves:</strong> Possuem penas, bico e põem ovos.</li>
-        <li><strong>Répteis:</strong> Cobertos por escamas, têm sangue frio.</li>
-        <li><strong>Anfíbios:</strong> Têm pele úmida e passam por metamorfose.</li>
-        <li><strong>Peixes:</strong> Vivem na água, respiram por brânquias.</li>
-      </ul>
-
-      <h3>Curiosidades do Mundo Animal</h3>
-      <ul>
-        <li><strong>Polvos têm três corações e sangue azul.</strong></li>
-        <li><strong>Golfinhos chamam uns aos outros por "nomes".</strong></li>
-        <li><strong>Flamingos nascem cinzas.</strong></li>
-        <li><strong>Formigas nunca dormem no sentido tradicional.</strong></li>
-      </ul>
-
-      <div class="post-actions">
-        <button class="btn-like">👍 <span>0</span></button>
-        <button class="btn-dislike">👎 <span>0</span></button>
-      </div>
-    </article>
-
-    <!-- NOVO POST: Curiosidades dos Oceanos -->
-    <article class="post-card">
-      <h2>Misteriosos Criaturas das Profundezas Aquáticas</h2>
-      <p class="artigo-autor">Por: rychard lopes</p>
-
-      <p>Os oceanos cobrem mais de 70% da superfície do nosso planeta e guardam alguns dos seres vivos mais impressionantes do reino animal. Vamos conhecer alguns deles?</p>
-
-      <h3>Animais Marinhos Surpreendentes</h3>
-      <ul>
-        <li><strong>Baleia-Azul:</strong> O maior animal que já existiu na Terra, podendo medir até 30 metros de comprimento.</li>
-        <li><strong>Lula-Gigante:</strong> Habitante das profundezas oceânicas, possui os maiores olhos do reino animal.</li>
-        <li><strong>Cavalo-Marinho:</strong> Uma das poucas espécies em que os machos ficam grávidos e chocam os ovos.</li>
-        <li><strong>Tartaruga-de-Couro:</strong> Consegue mergulhar a mais de 1.000 metros de profundidade em busca de águas-vivas.</li>
-      </ul>
-
-      <div class="post-actions">
-        <button class="btn-like">👍 <span>0</span></button>
-        <button class="btn-dislike">👎 <span>0</span></button>
-      </div>
-    </article>
-  </main>
-
-  <!-- Botão Flutuante do Modo Escuro -->
-  <button id="toggle-theme" aria-label="Alternar modo escuro">🌙</button>
-
-  <script src="script.js"></script>
-</body>
-</html>
+  // Altera o ícone do botão dependendo do modo ativo
+  if (document.body.classList.contains("dark-mode")) {
+    btnTema.textContent = "☀️";
+  } else {
+    btnTema.textContent = "🌙";
+  }
+});
