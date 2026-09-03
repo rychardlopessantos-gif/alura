@@ -55,6 +55,30 @@
         transition: background-color 0.3s ease, color 0.3s ease;
       }
 
+      /* Botão de Alternar Tema (Fixo no canto superior) */
+      .btn-toggle-tema {
+        position: fixed;
+        top: 16px;
+        right: 16px;
+        background-color: var(--cor-botao);
+        color: var(--cor-texto);
+        border: 2px solid var(--cor-borda);
+        padding: 10px 18px;
+        border-radius: 30px;
+        font-weight: 700;
+        cursor: pointer;
+        z-index: 1000;
+        box-shadow: var(--shadow);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.2s ease;
+      }
+
+      .btn-toggle-tema:hover {
+        transform: scale(1.05);
+      }
+
       /* Header */
       header {
         background-color: var(--cor-primaria);
@@ -222,8 +246,10 @@
       }
     </style>
   </head>
-  <!-- Adicione ou remova a classe "tema-escuro" para alternar os temas -->
-  <body class="tema-escuro">
+  <body>
+
+    <!-- Botão de alternar entre Modo Claro e Escuro -->
+    <button id="btnTema" class="btn-toggle-tema">🌙 Modo Escuro</button>
 
     <header>
       <h1>🌍 Mundo Animal</h1>
@@ -289,16 +315,25 @@
             <p class="artigo-autor">Por <strong>Rychard Lopes</strong></p>
           </div>
 
-          <p>No mundo animal, a evolução criou habilidades incríveis que parecem ter saído diretamente de um filme de ficção científica. Alguns animais desenvolveram estratégias fantásticas para sobreviver, caçar e se proteger.</p>
+          <p>No mundo animal, a evolução criou habilidades incríveis que parecem ter saído diretamente de um filme de ficção científica. Alguns animais desenvolveram estratégias fantásticas para sobreviver, caçar e se proteger em ambientes extremos.</p>
 
-          <h3>⚡ Habilidades impressionantes</h3>
+          <h3>⚡ Habilidades e adaptações impressionantes</h3>
           <ul>
-            <li><strong>O Camarão-Pistola:</strong> Consegue fechar suas garras a uma velocidade tão alta que gera uma bolha de calor quase tão quente quanto a superfície do Sol, estourando e nocauteando suas presas.</li>
-            <li><strong>O Axolote:</strong> Este anfíbio possui a capacidade extraordinária de regenerar membros inteiros, órgãos e até partes do seu cérebro e coração sem deixar cicatrizes.</li>
-            <li><strong>O Lagarto-Basilisco:</strong> Concreto como o "lagarto Jesus Cristo", ele consegue correr literalmente por cima da água para escapar de predadores devido ao formato especial de suas patas.</li>
+            <li><strong>O Camarão-Pistola:</strong> Consegue fechar suas garras a uma velocidade tão alta que gera uma bolha de calor quase tão quente quanto a superfície do Sol, estourando e nocauteando suas presas à distância.</li>
+            <li><strong>O Axolote:</strong> Este anfíbio possui a capacidade extraordinária de regenerar membros inteiros, órgãos e até partes do seu cérebro e coração sem deixar nenhuma cicatriz.</li>
+            <li><strong>O Lagarto-Basilisco:</strong> Conhecido como o "lagarto Jesus Cristo", ele consegue correr literalmente por cima da água para escapar de predadores devido ao formato especial de suas patas.</li>
+            <li><strong>A Água-Viva Imortal (Turritopsis dohrnii):</strong> Quando envelhece ou sofre estresse, ela consegue reverter seu ciclo de vida de volta ao estado jovem, repetindo o processo infinitamente.</li>
+            <li><strong>O Tardígrado (Urso-d'água):</strong> Sobrevive ao vácuo do espaço, a temperaturas de congelamento extremo e a altas doses de radiação entrando em um estado de hibernação profunda.</li>
           </ul>
 
-          <p>A natureza continua a nos surpreender todos os dias com essas adaptações impressionantes. Fique ligado para mais conteúdos sobre o reino animal!</p>
+          <h3>🌊 Estratégias incríveis de camuflagem</h3>
+          <p>Muitas espécies desenvolveram o "superpoder" da invisibilidade para fugir de caçadores ou surpreender suas presas:</p>
+          <ul>
+            <li><strong>O Choco (Sépia):</strong> Muda a cor e a textura de sua pele em frações de segundo para se misturar perfeitamente com as rochas e corais do fundo do mar.</li>
+            <li><strong>O Coruja-das-torres:</strong> Suas penas possuem uma estrutura especial que abafa o som do vento, permitindo que ela voe em total silêncio durante a caça noturna.</li>
+          </ul>
+
+          <p>A natureza continua a nos surpreender todos os dias com essas adaptações científicas impressionantes. Qual desses "superpoderes" você gostaria de ter? Deixe seu like e continue acompanhando o blog!</p>
 
           <div class="reacoes">
             <button class="btn-react">👍 <span>0</span></button>
@@ -309,13 +344,28 @@
     </main>
 
     <script>
-      const botoes = document.querySelectorAll(".btn-react");
+      /* --- LÓGICA DO BOTÃO DE REAÇÕES --- */
+      const botoesReact = document.querySelectorAll(".btn-react");
 
-      botoes.forEach(function(botao) {
+      botoesReact.forEach(function(botao) {
         botao.addEventListener("click", function() {
           let texto = botao.querySelector("span");
           texto.textContent = Number(texto.textContent) + 1;
         });
+      });
+
+      /* --- LÓGICA DO MODO CLARO E ESCURO --- */
+      const btnTema = document.getElementById("btnTema");
+      const body = document.body;
+
+      btnTema.addEventListener("click", function() {
+        body.classList.toggle("tema-escuro");
+
+        if (body.classList.contains("tema-escuro")) {
+          btnTema.textContent = "☀️ Modo Claro";
+        } else {
+          btnTema.textContent = "🌙 Modo Escuro";
+        }
       });
     </script>
   </body>
