@@ -8,18 +8,22 @@
     <!-- Fonte Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
       :root {
-        --primary: #183C63;
-        --primary-hover: #112B47;
-        --bg-body: #F4F6F8;
-        --bg-card: #FFFFFF;
+        --primary-gradient: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0284c7 100%);
+        --accent-color: #0ea5e9;
+        --accent-hover: #0284c7;
+        --bg-body: #f8fafc;
+        --bg-card: #ffffff;
+        --bg-highlight: #f0f9ff;
         --text-color: #334155;
-        --text-muted: #64748B;
-        --border-color: #E2E8F0;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        --text-heading: #0f172a;
+        --text-muted: #64748b;
+        --border-color: #e2e8f0;
+        --border-highlight: #bae6fd;
+        --shadow: 0 10px 25px -5px rgba(14, 165, 233, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
       }
 
       * {
@@ -37,160 +41,180 @@
         font-family: 'Inter', system-ui, -apple-system, sans-serif;
         background-color: var(--bg-body);
         color: var(--text-color);
-        line-height: 1.6;
+        line-height: 1.7;
         padding-bottom: 60px;
       }
 
-      /* Header sem espaços nas laterais */
+      /* Header vibrante com gradiente */
       header {
-        background-color: var(--primary);
-        color: #FFFFFF;
+        background: var(--primary-gradient);
+        color: #ffffff;
         text-align: center;
-        padding: 48px 20px;
-        margin-bottom: 32px;
+        padding: 60px 20px;
+        margin-bottom: 40px;
         width: 100%;
+        box-shadow: 0 4px 20px rgba(15, 23, 42, 0.15);
       }
 
       header h1 {
-        font-size: 2.25rem;
-        font-weight: 700;
-        margin-bottom: 8px;
-        letter-spacing: -0.025em;
+        font-size: 2.75rem;
+        font-weight: 800;
+        margin-bottom: 12px;
+        letter-spacing: -0.03em;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
       }
 
       header p {
-        font-size: 1.1rem;
-        color: #E2E8F0;
+        font-size: 1.2rem;
+        color: #e0f2fe;
         font-weight: 400;
       }
 
-      /* Container Principal de ponta a ponta */
+      /* Container Principal */
       main {
         width: 100%;
         display: flex;
         flex-direction: column;
-        gap: 32px;
-        padding: 0; /* Remove preenchimento das laterais do main */
+        gap: 40px;
+        padding: 0;
       }
 
-      /* Card do Post ocupando largura total */
+      /* Card do Post */
       .post-card {
         background-color: var(--bg-card);
         width: 100%;
-        padding: 32px;
+        padding: 40px 32px;
         display: grid;
-        grid-template-columns: 80px 1fr;
-        gap: 24px;
-        border-top: 1px solid var(--border-color);
-        border-bottom: 1px solid var(--border-color);
+        grid-template-columns: 90px 1fr;
+        gap: 28px;
+        border-top: 2px solid var(--border-highlight);
+        border-bottom: 2px solid var(--border-highlight);
+        box-shadow: var(--shadow);
       }
 
       /* Avatar Autor */
       .img-perfil {
-        width: 80px;
-        height: 80px;
+        width: 90px;
+        height: 90px;
         border-radius: 50%;
         object-fit: cover;
-        border: 2px solid var(--border-color);
+        border: 3px solid var(--accent-color);
+        box-shadow: 0 4px 12px rgba(14, 165, 233, 0.25);
       }
 
       /* Conteúdo do Artigo */
       .artigo-header {
         margin-bottom: 24px;
-        border-bottom: 1px solid var(--border-color);
+        border-bottom: 2px dashed var(--border-color);
         padding-bottom: 16px;
       }
 
       .artigo-header h2 {
-        font-size: 1.75rem;
-        color: var(--primary);
-        margin-bottom: 4px;
+        font-size: 2rem;
+        color: var(--text-heading);
+        margin-bottom: 6px;
+        letter-spacing: -0.02em;
       }
 
       .artigo-autor {
-        font-size: 0.9rem;
-        color: var(--text-muted);
-        font-weight: 500;
+        font-size: 0.95rem;
+        color: var(--accent-color);
+        font-weight: 600;
       }
 
       .artigo-conteudo p {
-        margin-bottom: 16px;
-        font-size: 1rem;
+        margin-bottom: 18px;
+        font-size: 1.05rem;
       }
 
       .artigo-conteudo h3 {
-        font-size: 1.25rem;
-        color: var(--primary);
-        margin: 28px 0 12px 0;
+        font-size: 1.35rem;
+        color: #0369a1;
+        margin: 32px 0 16px 0;
+        display: flex;
+        align-items: center;
+        gap: 8px;
       }
 
       .artigo-conteudo ul {
-        margin-bottom: 20px;
-        padding-left: 20px;
+        margin-bottom: 24px;
+        padding-left: 0;
+        list-style: none;
       }
 
       .artigo-conteudo li {
-        margin-bottom: 8px;
+        margin-bottom: 10px;
+        padding: 10px 16px;
+        background-color: var(--bg-highlight);
+        border-left: 4px solid var(--accent-color);
+        border-radius: 0 8px 8px 0;
       }
 
       /* Imagem Flutuante */
       .img-direita {
         width: 100%;
-        max-width: 320px;
+        max-width: 340px;
         height: auto;
         float: right;
-        margin: 8px 0 16px 20px;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
+        margin: 8px 0 20px 24px;
+        border-radius: 12px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+        border: 2px solid #ffffff;
       }
 
       /* Botões de Reação */
       .reacoes {
-        margin-top: 32px;
-        padding-top: 20px;
-        border-top: 1px solid var(--border-color);
+        margin-top: 36px;
+        padding-top: 24px;
+        border-top: 2px solid var(--border-color);
         display: flex;
-        gap: 12px;
+        gap: 16px;
       }
 
       .btn-react {
-        background-color: var(--bg-body);
-        border: 1px solid var(--border-color);
-        color: var(--text-color);
-        padding: 8px 16px;
-        border-radius: 20px;
-        font-size: 0.95rem;
-        font-weight: 600;
+        background-color: var(--bg-highlight);
+        border: 2px solid var(--border-highlight);
+        color: var(--text-heading);
+        padding: 10px 20px;
+        border-radius: 30px;
+        font-size: 1rem;
+        font-weight: 700;
         cursor: pointer;
         display: inline-flex;
         align-items: center;
-        gap: 6px;
-        transition: all 0.2s ease;
+        gap: 8px;
+        transition: all 0.25s ease;
       }
 
       .btn-react:hover {
-        background-color: var(--primary);
-        color: #FFFFFF;
-        border-color: var(--primary);
+        background: var(--primary-gradient);
+        color: #ffffff;
+        border-color: transparent;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(14, 165, 233, 0.3);
       }
 
       /* Responsividade */
       @media (max-width: 640px) {
+        header h1 {
+          font-size: 2rem;
+        }
+
         .post-card {
           grid-template-columns: 1fr;
-          padding: 20px;
+          padding: 24px 16px;
         }
 
         .img-perfil {
-          width: 60px;
-          height: 60px;
+          width: 70px;
+          height: 70px;
         }
 
         .img-direita {
           float: none;
           width: 100%;
           max-width: 100%;
-          margin: 16px 0;
+          margin: 20px 0;
         }
       }
     </style>
@@ -198,8 +222,8 @@
   <body>
 
     <header>
-      <h1>Mundo Animal</h1>
-      <p>Explorando a incrível diversidade da fauna no nosso planeta</p>
+      <h1>🌍 Mundo Animal</h1>
+      <p>Explorando a incrível e colorida diversidade da fauna no nosso planeta</p>
     </header>
 
     <main>
@@ -213,20 +237,20 @@
             <p class="artigo-autor">Por <strong>Rychard Lopes</strong></p>
           </div>
 
-          <p>Boas-vindas ao meu novo blog! Aqui vou compartilhar curiosidades e fatos sobre o reino animal.</p>
+          <p>Boas-vindas ao meu novo blog! Aqui vou compartilhar curiosidades e fatos fascinantes sobre o reino animal.</p>
 
           <p>O reino animal é incrivelmente diverso, englobando desde organismos microscópicos até gigantes como a baleia-azul. Para entender melhor esse universo, os animais são divididos em duas grandes categorias principais:</p>
 
           <img src="Gemini_Generated_Image_vyj7drvyj7drvyj7.png" alt="Ilustração do reino animal" class="img-direita">
 
-          <h3>Invertebrados</h3>
+          <h3>📌 Invertebrados</h3>
           <ul>
             <li><strong>Insetos e Aracnídeos:</strong> Formigas, abelhas, aranhas e escorpiões.</li>
             <li><strong>Moluscos e Crustáceos:</strong> Polvos, lulas, caranguejos e caracóis.</li>
             <li><strong>Outros grupos:</strong> Águas-vivas, corais, minhocas e estrelas-do-mar.</li>
           </ul>
 
-          <h3>Vertebrados</h3>
+          <h3>🐾 Vertebrados</h3>
           <p>Possuem espinha dorsal e crânio, dividindo-se em cinco grupos principais:</p>
           <ul>
             <li><strong>Mamíferos:</strong> Têm pelos, sangue quente e amamentam seus filhotes.</li>
@@ -236,7 +260,7 @@
             <li><strong>Peixes:</strong> Vivem na água, respiram por brânquias.</li>
           </ul>
 
-          <h3>Curiosidades do Mundo Animal</h3>
+          <h3>💡 Curiosidades do Mundo Animal</h3>
           <ul>
             <li><strong>Polvos:</strong> Têm três corações e sangue azul.</li>
             <li><strong>Golfinhos:</strong> Chamam uns aos outros por "nomes".</li>
@@ -263,7 +287,7 @@
 
           <p>No mundo animal, a evolução criou habilidades incríveis que parecem ter saído diretamente de um filme de ficção científica. Alguns animais desenvolveram estratégias fantásticas para sobreviver, caçar e se proteger.</p>
 
-          <h3>Habilidades impressionantes</h3>
+          <h3>⚡ Habilidades impressionantes</h3>
           <ul>
             <li><strong>O Camarão-Pistola:</strong> Consegue fechar suas garras a uma velocidade tão alta que gera uma bolha de calor quase tão quente quanto a superfície do Sol, estourando e nocauteando suas presas.</li>
             <li><strong>O Axolote:</strong> Este anfíbio possui a capacidade extraordinária de regenerar membros inteiros, órgãos e até partes do seu cérebro e coração sem deixar cicatrizes.</li>
