@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog sobre Animais | Rychard Lopes</title>
     
+    <!-- Fonte Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -61,6 +62,14 @@
       main {
         max-width: 860px;
         margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        padding: 0 16px;
+      }
+
+      /* Card do Post */
+      .post-card {
         background-color: var(--bg-card);
         border-radius: 12px;
         box-shadow: var(--shadow);
@@ -79,7 +88,7 @@
         border: 2px solid var(--border-color);
       }
 
-      /* Artigo */
+      /* Conteúdo do Artigo */
       .artigo-header {
         margin-bottom: 24px;
         border-bottom: 1px solid var(--border-color);
@@ -118,7 +127,7 @@
         margin-bottom: 8px;
       }
 
-      /* Imagem Destacada */
+      /* Imagem Flutuante */
       .img-direita {
         width: 100%;
         max-width: 320px;
@@ -161,10 +170,9 @@
 
       /* Responsividade */
       @media (max-width: 640px) {
-        main {
+        .post-card {
           grid-template-columns: 1fr;
           padding: 20px;
-          margin: 0 16px;
         }
 
         .img-perfil {
@@ -189,48 +197,79 @@
     </header>
 
     <main>
-      <img src="rychardsom.jpeg" alt="Autor" class="img-perfil">
+      <!-- PRIMEIRO POST -->
+      <article class="post-card">
+        <img src="rychardsom.jpeg" alt="Autor" class="img-perfil">
 
-      <article class="artigo-conteudo">
-        <div class="artigo-header">
-          <h2>Meu primeiro post</h2>
-          <p class="artigo-autor">Por <strong>Rychard Lopes</strong></p>
+        <div class="artigo-conteudo">
+          <div class="artigo-header">
+            <h2>Meu primeiro post: A diversidade dos animais</h2>
+            <p class="artigo-autor">Por <strong>Rychard Lopes</strong></p>
+          </div>
+
+          <p>Boas-vindas ao meu novo blog! Aqui vou compartilhar curiosidades e fatos sobre o reino animal.</p>
+
+          <p>O reino animal é incrivelmente diverso, englobando desde organismos microscópicos até gigantes como a baleia-azul. Para entender melhor esse universo, os animais são divididos em duas grandes categorias principais:</p>
+
+          <img src="Gemini_Generated_Image_vyj7drvyj7drvyj7.png" alt="Ilustração do reino animal" class="img-direita">
+
+          <h3>Invertebrados</h3>
+          <ul>
+            <li><strong>Insetos e Aracnídeos:</strong> Formigas, abelhas, aranhas e escorpiões.</li>
+            <li><strong>Moluscos e Crustáceos:</strong> Polvos, lulas, caranguejos e caracóis.</li>
+            <li><strong>Outros grupos:</strong> Águas-vivas, corais, minhocas e estrelas-do-mar.</li>
+          </ul>
+
+          <h3>Vertebrados</h3>
+          <p>Possuem espinha dorsal e crânio, dividindo-se em cinco grupos principais:</p>
+          <ul>
+            <li><strong>Mamíferos:</strong> Têm pelos, sangue quente e amamentam seus filhotes.</li>
+            <li><strong>Aves:</strong> Possuem penas, bico e põem ovos.</li>
+            <li><strong>Répteis:</strong> Cobertos por escamas, têm sangue frio.</li>
+            <li><strong>Anfíbios:</strong> Têm pele úmida e passam por metamorfose.</li>
+            <li><strong>Peixes:</strong> Vivem na água, respiram por brânquias.</li>
+          </ul>
+
+          <h3>Curiosidades do Mundo Animal</h3>
+          <ul>
+            <li><strong>Polvos:</strong> Têm três corações e sangue azul.</li>
+            <li><strong>Golfinhos:</strong> Chamam uns aos outros por "nomes".</li>
+            <li><strong>Flamingos:</strong> Nascem cinzas.</li>
+            <li><strong>Formigas:</strong> Nunca dormem no sentido tradicional.</li>
+          </ul>
+
+          <div class="reacoes">
+            <button class="btn-react">👍 <span>0</span></button>
+            <button class="btn-react">👎 <span>0</span></button>
+          </div>
         </div>
+      </article>
 
-        <p>Boas-vindas ao meu novo blog! Aqui vou compartilhar curiosidades e fatos sobre o reino animal.</p>
+      <!-- SEGUNDO POST -->
+      <article class="post-card">
+        <img src="rychardsom.jpeg" alt="Autor" class="img-perfil">
 
-        <p>O reino animal é incrivelmente diverso, englobando desde organismos microscópicos até gigantes como a baleia-azul. Para entender melhor esse universo, os animais são divididos em duas grandes categorias principais:</p>
+        <div class="artigo-conteudo">
+          <div class="artigo-header">
+            <h2>Animais com superpoderes da natureza</h2>
+            <p class="artigo-autor">Por <strong>Rychard Lopes</strong></p>
+          </div>
 
-        <img src="Gemini_Generated_Image_vyj7drvyj7drvyj7.png" alt="Ilustração do reino animal" class="img-direita">
+          <p>No mundo animal, a evolução criou habilidades incríveis que parecem ter saído diretamente de um filme de ficção científica. Alguns animais desenvolveram estratégias fantásticas para sobreviver, caçar e se proteger.</p>
 
-        <h3>Invertebrados</h3>
-        <ul>
-          <li><strong>Insetos e Aracnídeos:</strong> Formigas, abelhas, aranhas e escorpiões.</li>
-          <li><strong>Moluscos e Crustáceos:</strong> Polvos, lulas, caranguejos e caracóis.</li>
-          <li><strong>Outros grupos:</strong> Águas-vivas, corais, minhocas e estrelas-do-mar.</li>
-        </ul>
+          <h3>Habilidades impressionantes</h3>
+          <ul>
+            <li><strong>O Camarão-Pistola:</strong> Consegue fechar suas garras a uma velocidade tão alta que gera uma bolha de calor quase tão quente quanto a superfície do Sol, estourando e nocauteando suas presas.</li>
+            <li><strong>O Axolote:</strong> Este anfíbio possui a capacidade extraordinária de regenerar membros inteiros, órgãos e até partes do seu cérebro e coração sem deixar cicatrizes.</li>
+            <li><strong>O Lagarto-Basilisco:</strong> Conhecido como o "lagarto Jesus Cristo", ele consegue correr literalmente por cima da água para escapar de predadores devido ao formato especial de suas patas.</li>
+          </ul>
 
-        <h3>Vertebrados</h3>
-        <p>Possuem espinha dorsal e crânio, dividindo-se em cinco grupos principais:</p>
-        <ul>
-          <li><strong>Mamíferos:</strong> Têm pelos, sangue quente e amamentam seus filhotes.</li>
-          <li><strong>Aves:</strong> Possuem penas, bico e põem ovos.</li>
-          <li><strong>Répteis:</strong> Cobertos por escamas, têm sangue frio.</li>
-          <li><strong>Anfíbios:</strong> Têm pele úmida e passam por metamorfose.</li>
-          <li><strong>Peixes:</strong> Vivem na água, respiram por brânquias.</li>
-        </ul>
+          <p>A natureza continua a nos surpreender todos os dias com essas adaptações impressionantes. Fique ligado para mais conteúdos sobre o reino animal!</p>
 
-        <h3>Curiosidades do Mundo Animal</h3>
-        <ul>
-          <li><strong>Polvos:</strong> Têm três corações e sangue azul.</li>
-          <li><strong>Golfinhos:</strong> Chamam uns aos outros por "nomes".</li>
-          <li><strong>Flamingos:</strong> Nasce cinzas.</li>
-          <li><strong>Formigas:</strong> Nunca dormem no sentido tradicional.</li>
-        </ul>
-
-        <div class="reacoes">
-          <button class="btn-react">👍 <span>0</span></button>
-          <button class="btn-react">👎 <span>0</span></button>
+          <div class="reacoes">
+            <button class="btn-react">👍 <span>0</span></button>
+            <button class="btn-react">👎 <span>0</span></button>
+          </div>
         </div>
       </article>
     </main>
