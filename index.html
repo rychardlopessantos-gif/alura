@@ -11,19 +11,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
+      /* --- PALETA DE VARIÁVEIS (TEMA CLARO) --- */
       :root {
-        --primary-gradient: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0284c7 100%);
-        --accent-color: #0ea5e9;
-        --accent-hover: #0284c7;
-        --bg-body: #f8fafc;
-        --bg-card: #ffffff;
-        --bg-highlight: #f0f9ff;
-        --text-color: #334155;
-        --text-heading: #0f172a;
-        --text-muted: #64748b;
-        --border-color: #e2e8f0;
-        --border-highlight: #bae6fd;
-        --shadow: 0 10px 25px -5px rgba(14, 165, 233, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+        --cor-primaria: #183C63;
+        --cor-secundaria: #3782d2;
+        --cor-fundo: #ffffff;
+        --cor-texto: #151428;
+        --cor-contraste: #f3eef7;
+        --cor-botao: #f9f9f9;
+        --cor-borda: #e2e8f0;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      }
+
+      /* --- REDEFINIÇÃO DE VARIÁVEIS (TEMA ESCURO) --- */
+      .tema-escuro {
+        --cor-primaria: #c9e3ff;
+        --cor-secundaria: #3782d2;
+        --cor-fundo: #0f172a;
+        --cor-texto: #f8fafc;
+        --cor-contraste: #1e293b;
+        --cor-botao: #334155;
+        --cor-borda: #334155;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
       }
 
       * {
@@ -39,21 +48,22 @@
 
       body {
         font-family: 'Inter', system-ui, -apple-system, sans-serif;
-        background-color: var(--bg-body);
-        color: var(--text-color);
+        background-color: var(--cor-fundo);
+        color: var(--cor-texto);
         line-height: 1.7;
         padding-bottom: 60px;
+        transition: background-color 0.3s ease, color 0.3s ease;
       }
 
-      /* Header vibrante com gradiente */
+      /* Header */
       header {
-        background: var(--primary-gradient);
-        color: #ffffff;
+        background-color: var(--cor-primaria);
+        color: var(--cor-contraste);
         text-align: center;
         padding: 60px 20px;
         margin-bottom: 40px;
         width: 100%;
-        box-shadow: 0 4px 20px rgba(15, 23, 42, 0.15);
+        box-shadow: var(--shadow);
       }
 
       header h1 {
@@ -61,12 +71,12 @@
         font-weight: 800;
         margin-bottom: 12px;
         letter-spacing: -0.03em;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
       }
 
       header p {
         font-size: 1.2rem;
-        color: #e0f2fe;
+        color: var(--cor-contraste);
+        opacity: 0.9;
         font-weight: 400;
       }
 
@@ -81,14 +91,14 @@
 
       /* Card do Post */
       .post-card {
-        background-color: var(--bg-card);
+        background-color: var(--cor-fundo);
         width: 100%;
         padding: 40px 32px;
         display: grid;
         grid-template-columns: 90px 1fr;
         gap: 28px;
-        border-top: 2px solid var(--border-highlight);
-        border-bottom: 2px solid var(--border-highlight);
+        border-top: 1px solid var(--cor-borda);
+        border-bottom: 1px solid var(--cor-borda);
         box-shadow: var(--shadow);
       }
 
@@ -98,27 +108,26 @@
         height: 90px;
         border-radius: 50%;
         object-fit: cover;
-        border: 3px solid var(--accent-color);
-        box-shadow: 0 4px 12px rgba(14, 165, 233, 0.25);
+        border: 3px solid var(--cor-secundaria);
       }
 
       /* Conteúdo do Artigo */
       .artigo-header {
         margin-bottom: 24px;
-        border-bottom: 2px dashed var(--border-color);
+        border-bottom: 2px dashed var(--cor-borda);
         padding-bottom: 16px;
       }
 
       .artigo-header h2 {
         font-size: 2rem;
-        color: var(--text-heading);
+        color: var(--cor-primaria);
         margin-bottom: 6px;
         letter-spacing: -0.02em;
       }
 
       .artigo-autor {
         font-size: 0.95rem;
-        color: var(--accent-color);
+        color: var(--cor-secundaria);
         font-weight: 600;
       }
 
@@ -129,11 +138,8 @@
 
       .artigo-conteudo h3 {
         font-size: 1.35rem;
-        color: #0369a1;
+        color: var(--cor-primaria);
         margin: 32px 0 16px 0;
-        display: flex;
-        align-items: center;
-        gap: 8px;
       }
 
       .artigo-conteudo ul {
@@ -145,8 +151,8 @@
       .artigo-conteudo li {
         margin-bottom: 10px;
         padding: 10px 16px;
-        background-color: var(--bg-highlight);
-        border-left: 4px solid var(--accent-color);
+        background-color: var(--cor-contraste);
+        border-left: 4px solid var(--cor-secundaria);
         border-radius: 0 8px 8px 0;
       }
 
@@ -158,23 +164,22 @@
         float: right;
         margin: 8px 0 20px 24px;
         border-radius: 12px;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
-        border: 2px solid #ffffff;
+        box-shadow: var(--shadow);
       }
 
       /* Botões de Reação */
       .reacoes {
         margin-top: 36px;
         padding-top: 24px;
-        border-top: 2px solid var(--border-color);
+        border-top: 1px solid var(--cor-borda);
         display: flex;
         gap: 16px;
       }
 
       .btn-react {
-        background-color: var(--bg-highlight);
-        border: 2px solid var(--border-highlight);
-        color: var(--text-heading);
+        background-color: var(--cor-botao);
+        border: 1px solid var(--cor-borda);
+        color: var(--cor-texto);
         padding: 10px 20px;
         border-radius: 30px;
         font-size: 1rem;
@@ -187,11 +192,9 @@
       }
 
       .btn-react:hover {
-        background: var(--primary-gradient);
+        background-color: var(--cor-secundaria);
         color: #ffffff;
         border-color: transparent;
-        transform: translateY(-2px);
-        box-shadow: 0 6px 15px rgba(14, 165, 233, 0.3);
       }
 
       /* Responsividade */
@@ -219,7 +222,8 @@
       }
     </style>
   </head>
-  <body>
+  <!-- Adicione ou remova a classe "tema-escuro" para alternar os temas -->
+  <body class="tema-escuro">
 
     <header>
       <h1>🌍 Mundo Animal</h1>
@@ -291,7 +295,7 @@
           <ul>
             <li><strong>O Camarão-Pistola:</strong> Consegue fechar suas garras a uma velocidade tão alta que gera uma bolha de calor quase tão quente quanto a superfície do Sol, estourando e nocauteando suas presas.</li>
             <li><strong>O Axolote:</strong> Este anfíbio possui a capacidade extraordinária de regenerar membros inteiros, órgãos e até partes do seu cérebro e coração sem deixar cicatrizes.</li>
-            <li><strong>O Lagarto-Basilisco:</strong> Conhecido como o "lagarto Jesus Cristo", ele consegue correr literalmente por cima da água para escapar de predadores devido ao formato especial de suas patas.</li>
+            <li><strong>O Lagarto-Basilisco:</strong> Concreto como o "lagarto Jesus Cristo", ele consegue correr literalmente por cima da água para escapar de predadores devido ao formato especial de suas patas.</li>
           </ul>
 
           <p>A natureza continua a nos surpreender todos os dias com essas adaptações impressionantes. Fique ligado para mais conteúdos sobre o reino animal!</p>
